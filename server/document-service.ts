@@ -4,7 +4,17 @@ import { eq, desc, like, and, sql } from "drizzle-orm";
 import type { Document, InsertDocument, CodeRepository, InsertCodeRepository, DocumentEmbedding, InsertDocumentEmbedding, DocumentSearchResult, InsertDocumentSearchResult } from "@shared/schema";
 import OpenAI from "openai";
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+let openai: OpenAI | null = null;
+
+function getOpenAIClient(): OpenAI | null {
+  if (!process.env.OPENAI_API_KEY) {
+    return null;
+  }
+  if (!openai) {
+    openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  }
+  return openai;
+}
 
 export interface DocumentSearchMatch {
   document: Document;
@@ -24,8 +34,14 @@ export interface RAGResponse {
 export class DocumentService {
   // Create embeddings for document content
   async createEmbedding(text: string): Promise<number[] | null> {
+    const client = getOpenAIClient();
+    if (!client) {
+      console.log('OpenAI API key not available, skipping embedding generation');
+      return null;
+    }
+    
     try {
-      const response = await openai.embeddings.create({
+      const response = await client.embeddings.create({
         model: "text-embedding-3-small",
         input: text,
         encoding_format: "float",
