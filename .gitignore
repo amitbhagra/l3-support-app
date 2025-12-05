@@ -1,0 +1,63 @@
+# Dependencies
+node_modules
+dist
+.DS_Store
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+env
+
+# Build outputs
+dist/
+build/
+server/public
+
+# Development files
+vite.config.ts.*
+*.tar.gz
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Modified files directory (contains generated code examples)
+modified_files/
+
+# Debug and test files
+debug_*.html
+debug_*.txt
+test_*.log
+temp_*.js
+
+# Presentation files (if not needed in repo)
+presentation*.html

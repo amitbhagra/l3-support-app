@@ -1,0 +1,12 @@
+2025-01-07 07:00:15 ERROR [DatabaseManager] ORA-02292: integrity constraint (HR.FK_EMPLOYEES_DEPT) violated - child record found
+2025-01-07 07:00:15 ERROR [DepartmentService] Failed to delete department record for DEPT_ID: 10
+2025-01-07 07:00:15 INFO [DepartmentService] Attempting to delete: {dept_id: 10, dept_name: "IT", manager_id: 100}
+2025-01-07 07:00:15 ERROR [DatabaseManager] SQL: DELETE FROM departments WHERE dept_id = 10
+2025-01-07 07:00:15 ERROR [DatabaseManager] Foreign key constraint violation: Child records exist in employees table
+2025-01-07 07:00:15 WARN [DepartmentService] Cannot delete department - active employees found
+2025-01-07 07:00:15 INFO [DepartmentService] Child records found in employees table for dept_id = 10
+2025-01-07 07:00:16 INFO [DatabaseManager] SELECT COUNT(*) FROM employees WHERE dept_id = 10
+2025-01-07 07:00:16 INFO [DatabaseManager] Found 15 active employees in department 10
+2025-01-07 07:00:16 ERROR [DepartmentService] Transaction rolled back due to integrity constraint
+2025-01-07 07:00:16 ERROR [ApplicationController] Department deletion failed - foreign key constraint violation
+2025-01-07 07:00:16 INFO [AuditLog] Failed department deletion attempt logged for compliance

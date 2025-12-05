@@ -1,0 +1,12 @@
+2025-01-04 08:45:12 ERROR [DatabaseConnection] ORA-00001: unique constraint (HR.EMPLOYEES_PK) violated
+2025-01-04 08:45:12 ERROR [EmployeeService] Failed to insert employee record for ID: EMP_12345
+2025-01-04 08:45:12 INFO [EmployeeService] Attempting to insert: {id: 12345, name: "John Doe", email: "john.doe@company.com", department: "IT"}
+2025-01-04 08:45:12 ERROR [DatabaseConnection] SQL: INSERT INTO employees (emp_id, first_name, last_name, email, department) VALUES (12345, 'John', 'Doe', 'john.doe@company.com', 'IT')
+2025-01-04 08:45:12 ERROR [DatabaseConnection] Constraint violation: Primary key constraint on EMP_ID column
+2025-01-04 08:45:12 WARN [EmployeeService] Duplicate employee record detected - employee with ID 12345 already exists
+2025-01-04 08:45:12 INFO [EmployeeService] Checking existing employee records...
+2025-01-04 08:45:13 INFO [DatabaseConnection] SELECT * FROM employees WHERE emp_id = 12345
+2025-01-04 08:45:13 INFO [DatabaseConnection] Found existing record: {id: 12345, name: "John Doe", status: "ACTIVE", hire_date: "2024-12-15"}
+2025-01-04 08:45:13 ERROR [EmployeeService] Transaction rolled back due to constraint violation
+2025-01-04 08:45:13 ERROR [ApplicationController] Employee creation failed - duplicate ID detected
+2025-01-04 08:45:13 INFO [AuditLog] Failed employee creation attempt logged for compliance

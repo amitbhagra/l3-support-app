@@ -1,0 +1,26 @@
+Q111122220001 2025-07-18 14:50:15.789 ERROR [http-nio-8080-exec-3] com.amit.customer.web.controller.CustomerController - Validation failed for CustomerDto
+org.hibernate.validator.internal.engine.ConstraintViolationImpl: 
+Validation failed for classes [com.amit.customer.web.model.CustomerDto] during constraint checking.
+Constraint violations: 
+  com.amit.customer.web.model.CustomerDto.email: Email already exists
+	at org.hibernate.validator.internal.engine.ValidatorImpl.validate(ValidatorImpl.java:623)
+	at org.springframework.validation.beanvalidation.SpringValidatorAdapter.validate(SpringValidatorAdapter.java:117)
+	at org.springframework.validation.DataBinder.validate(DataBinder.java:891)
+	at org.springframework.web.bind.WebDataBinder.validate(WebDataBinder.java:123)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.validateIfApplicable(AbstractMessageConverterMethodArgumentResolver.java:411)
+	at com.amit.customer.web.controller.CustomerController.createCustomer(CustomerController.java:28)
+	at com.amit.customer.validators.DuplicateEmailValidator.isValid(DuplicateEmailValidator.java:42)
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)

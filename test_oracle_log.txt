@@ -1,0 +1,6 @@
+2025-01-04 10:30:15 [ERROR] ORA-00001: unique constraint (HR.EMPLOYEES_EMAIL_UK) violated
+2025-01-04 10:30:15 [ERROR] Failed to insert employee record: john.doe@company.com already exists
+2025-01-04 10:30:15 [INFO] Employee insertion process initiated for John Doe
+2025-01-04 10:30:15 [DEBUG] SQL: INSERT INTO employees (emp_id, email, first_name, last_name) VALUES (12345, 'john.doe@company.com', 'John', 'Doe')
+2025-01-04 10:30:15 [ERROR] Transaction rolled back due to constraint violation
+2025-01-04 10:30:15 [WARN] Employee addition failed - duplicate email detected
